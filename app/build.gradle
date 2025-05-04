@@ -33,4 +33,5 @@ java {
 application {
     // Define the main class for the application.
     // mainClass = 'leetcode.problems.App'
+    mainClass = project.hasProperty('mainClass') ? project.getProperty('mainClass') : 'noop.Main'
 }
