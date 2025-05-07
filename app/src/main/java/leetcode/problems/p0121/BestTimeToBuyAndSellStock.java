@@ -1,31 +1,40 @@
 package leetcode.problems.p0121;
 
 class BestTimeToBuyAndSellStock {
+    /**
+     * The intuition behind this solution is to use two pointers as we traverse the
+     * array.The right pointer movesd ahead, and for each iteration, it checks
+     * whether the current value is greater than the value at the left pointer. If
+     * so, we update the maximum profit value if this is greater than the current
+     * seen maximum profit. We then move right along one. If the value at the right
+     * pointer is less than or equal to the pointer at the left pointer, we move the
+     * left pointer to the right pointers index, and move the right pointer forward
+     * one.
+     *
+     * This is because all differences have already been calculated between the
+     * left and right pointer indices, so we can start from the next lowest value in
+     * the array of stock prices.
+     */
     int solve(int[] prices) {
-        int n = prices.length;
         int left = 0;
+        int right = 1;
+        int maxProfit = 0;
 
-        while (left + 1 < n && prices[left] >= prices[left + 1]) {
-            left++;
+        while (right < prices.length) {
+            if (prices[left] < prices[right]) {
+                maxProfit = Math.max(maxProfit, prices[right] - prices[left]);
+            } else {
+                left = right;
+            }
+            right++;
         }
-
-        if (left == n - 1) {
-            return 0;
-        }
-
-        int greatestProfit = 0;
-        for (int i = left + 1; i < n; i++) {
-            greatestProfit = Math.max(greatestProfit, prices[i] - prices[left]);
-        }
-
-        return greatestProfit;
+        return maxProfit;
     }
 
     public static void main(String[] args) {
         BestTimeToBuyAndSellStock arbitrage = new BestTimeToBuyAndSellStock();
 
-        var answer = arbitrage.solve(new int[] { 2, 1, 2, 1, 0, 1, 2 });
-
+        var answer = arbitrage.solve(new int[] { 1, 5, 2, 0, 10 });
         System.out.println(answer);
     }
 }
