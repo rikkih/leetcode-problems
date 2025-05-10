@@ -25,7 +25,7 @@ class MoveZeroes {
 
         var testCase = new int[] { 1, 0, 1, 0, 3, 12 };
 
-        moveZeroes.solve(testCase);
+        moveZeroes.solveWithSwap(testCase);
         System.out.println(Arrays.toString(testCase));
     }
 }
