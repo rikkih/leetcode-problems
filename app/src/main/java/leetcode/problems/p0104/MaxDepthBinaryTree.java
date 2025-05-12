@@ -21,7 +21,7 @@ class MaxDepthBinaryTree {
             return 0;
         }
 
-        maxDepth = 0;
+        int maxDepth = 0;
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
 
