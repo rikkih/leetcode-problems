@@ -24,8 +24,8 @@ class ThreeSum {
                     while (left < right && nums[left] == nums[left + 1]) {
                         left++;
                     }
-                    while (right > left && nums[right - 1] == nums[right]) {
-                        right++;
+                    while (left < right && nums[right] == nums[right - 1]) {
+                        right--;
                     }
                     left++;
                     right--;
