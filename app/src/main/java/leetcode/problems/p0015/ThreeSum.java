@@ -42,7 +42,7 @@ class ThreeSum {
     public static void main(String[] args) {
         ThreeSum threeSum = new ThreeSum();
         var answer = threeSum.solve(new int[] { -1, 0, 1, 2, -1, -4 });
-        
+
         System.out.println(answer);
     }
 }

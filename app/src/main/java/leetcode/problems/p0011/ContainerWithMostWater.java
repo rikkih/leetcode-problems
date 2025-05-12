@@ -1,5 +1,14 @@
 package leetcode.problems.p0011;
 
+/**
+ * The intuition behind this is to use a two pointer approach. Each pointer
+ * starts at one end of the heights array. For each iteration, update the
+ * greatest height with the height of the current box defined by the current
+ * pointer values. Whichever height is the lowest, we move that pointer across.
+ * To see why, imagine that heights[right] < heights[left]. This means that for
+ * every left < right where heights[left] > heights[right], this is the greatest
+ * area for this right since the width is the greatest here.
+ */
 class ContainerWithMostWater {
     int solve(int[] height) {
         int greatestArea = 0;
