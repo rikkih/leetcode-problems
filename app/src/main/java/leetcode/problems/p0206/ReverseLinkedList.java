@@ -1,8 +1,8 @@
 package leetcode.problems.p0206;
 
-import leetcode.util.ListNode;
-
 import java.util.logging.Logger;
+
+import leetcode.util.ListNode;
 
 class ReverseLinkedList {
 
@@ -14,9 +14,9 @@ class ReverseLinkedList {
 
         while (current != null) {
             ListNode next = current.next; // Get the next node and assign it temp.
-            current.next = prev;          // reverse pointer of current (1 -> null) (2 -> 1) ... (5 -> 4)
-            prev = current;               // For the next iteration, make prev the current
-            current = next;               // Make current the next node. Eventually null.
+            current.next = prev; // reverse pointer of current (1 -> null) (2 -> 1) ... (5 -> 4)
+            prev = current; // For the next iteration, make prev the current
+            current = next; // Make current the next node. Eventually null.
         }
         return prev;
     }
