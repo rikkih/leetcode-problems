@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
  * After iterating over all ListNodes, we can poll the Min Heap and create a new Linked List.
  *
  * Insertion into a Heap is at worst O(logn)
- * If N is the total length of all lists,
+ * If N is the total length of all lists,u
  * then the complexity of this is O(logN)
  *
  * So this scaled logarithmically with the combined length of the lists.
