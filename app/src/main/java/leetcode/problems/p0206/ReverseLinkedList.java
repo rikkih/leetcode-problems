@@ -1,8 +1,8 @@
 package leetcode.problems.p0206;
 
-import java.util.logging.Logger;
-
 import leetcode.util.ListNode;
+
+import java.util.logging.Logger;
 
 class ReverseLinkedList {
 
@@ -18,6 +18,20 @@ class ReverseLinkedList {
             prev = current; // For the next iteration, make prev the current
             current = next; // Make current the next node. Eventually null.
         }
+        return prev;
+    }
+
+    ListNode reverseList2(ListNode head) {
+        ListNode current = head;
+        ListNode prev = null;
+
+        while(current != null) {
+            ListNode next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
         return prev;
     }
 
