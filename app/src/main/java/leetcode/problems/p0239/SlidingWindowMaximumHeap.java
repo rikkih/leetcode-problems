@@ -31,7 +31,7 @@ public class SlidingWindowMaximumHeap {
             // Add to heap.
             maxHeap.offer(new Pair(i, nums[i]));
 
-            // We can just remove the top elements whose index falls outside of the window.
+            // We can just remove the top elements whose index falls outside the window.
             // We don't actually care about anything else.
             while (maxHeap.peek().index <= i - k) {
                 maxHeap.poll();
