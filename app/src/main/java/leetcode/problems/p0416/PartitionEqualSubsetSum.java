@@ -26,7 +26,7 @@ public class PartitionEqualSubsetSum {
 
     /*
     Terrible time complexity. For each num, we have two decisions, i.e., O(2^n).
-    Space Complexity. 
+    Space Complexity.
      */
     boolean canPartitionRecursive(int index, int currentSum, int target, int[] nums) {
         if (currentSum == target) return true;
@@ -57,11 +57,30 @@ public class PartitionEqualSubsetSum {
         return include || exclude;
     }
 
+    boolean canPartitionIterative(int[] nums) {
+        int totalSum = Arrays.stream(nums).sum();
+
+        if (totalSum % 2 != 0) return false;
+        int target = totalSum / 2;
+
+        boolean[] dp = new boolean[target + 1];
+        dp[0] = true;
+        // dp[i] = whether we can make the sum i from some subset of the numbers seen so far.
+
+        for (int num : nums) {
+            for (int i = target; i >= num; i--) {
+                dp[i] = dp[i] || dp[i-num];
+                if (dp[target]) return true;
+            }
+        }
+        return dp[target];
+    }
+
     public static void main(String[] args) {
         int[] nums = new int[]{ 1, 5, 11, 5 };
 
         PartitionEqualSubsetSum partitionEqualSubsetSum = new PartitionEqualSubsetSum();
-        var result = partitionEqualSubsetSum.canPartition(nums);
+        var result = partitionEqualSubsetSum.canPartitionIterative(nums);
 
         System.out.println(result);
     }
