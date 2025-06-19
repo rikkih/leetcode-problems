@@ -1,8 +1,8 @@
 package leetcode.problems.p0104;
 
-import java.util.Stack;
-
 import leetcode.util.TreeNode;
+
+import java.util.Stack;
 
 class MaxDepthBinaryTree {
     int maxDepthRecursive(TreeNode treeNode) {

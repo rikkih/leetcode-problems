@@ -4,7 +4,7 @@ package leetcode.problems.p0005;
  * A naive solution could be to just check every substring. We can do this with
  * depth first search over the string.
  */
-public class LongestPalindromicSubstring {
+class LongestPalindromicSubstring {
 
     String longestPalindrome(String s) {
         if (s.length() < 1) return "";
