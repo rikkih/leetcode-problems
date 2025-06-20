@@ -3,7 +3,7 @@ package leetcode.problems.p0121;
 class BestTimeToBuyAndSellStock {
     /**
      * The intuition behind this solution is to use two pointers as we traverse the
-     * array.The right pointer moves ahead, and for each iteration, it checks
+     * array. The right pointer moves ahead, and for each iteration, it checks
      * whether the current value is greater than the value at the left pointer. If
      * so, we update the maximum profit value if this is greater than the current
      * seen maximum profit. We then move right along one. If the value at the right
