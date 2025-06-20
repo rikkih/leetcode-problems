@@ -12,7 +12,7 @@ import java.util.Arrays;
  * If the total sum is odd, we return false. Otherwise, we try to find a subset
  * whose sum is equal to totalSum / 2.
  */
-public class PartitionEqualSubsetSum {
+class PartitionEqualSubsetSum {
 
     boolean canPartition(int[] nums) {
         int totalSum = Arrays.stream(nums).sum();
