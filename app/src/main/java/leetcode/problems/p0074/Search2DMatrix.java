@@ -39,7 +39,7 @@ public class Search2DMatrix {
         while (top < bottom) {
             int mid = top + (bottom - top + 1) / 2;
 
-            if (matrix[mid][0] < target) {
+            if (matrix[mid][0] <= target) {
                 top = mid;
             } else {
                 bottom = mid - 1;
