@@ -8,7 +8,7 @@ package leetcode.problems.p0240;
  *  if target greater: column down
  *    else: row left
  */
-public class Search2DMatrixIIEfficient {
+class Search2DMatrixIIEfficient {
 
     boolean searchMatrix(int[][] matrix, int target) {
         int row = 0;
