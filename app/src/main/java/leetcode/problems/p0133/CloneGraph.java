@@ -2,43 +2,32 @@ package leetcode.problems.p0133;
 
 import leetcode.util.Node;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * For the current node, add its value and neighbours to the current node.
- * Enqueue the neighbours to the queue.
- * Add the
+ * We are going to traverse the graph using dfs, cloning its neighbours and
+ * returning them.
  */
 public class CloneGraph {
 
     Node cloneGraph(Node node) {
+        Map<Node, Node> nodeToClone = new HashMap<>();
 
-        if (node == null) return null;
+        return node == null ? null : clone(node, nodeToClone);
+    }
 
-        Set<Node> visited = new HashSet<>();
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(node);
+    Node clone(Node node, Map<Node, Node> nodeToCloneMap) {
+        if (nodeToCloneMap.containsKey(node)) {
+            return nodeToCloneMap.get(node);
+        }
 
         Node clone = new Node(node.val);
+        nodeToCloneMap.put(node, clone);
 
-        while (!queue.isEmpty()) {
-            Node current = queue.poll();
-
-            visited.add(current);
-
-            for (Node neighbour : current.neighbors) {
-                if (visited.contains(neighbour)) {
-                    continue;
-                }
-                clone.neighbors.add(neighbour);
-                queue.offer(neighbour);
-            }
-
-            clone.val = current.val;
-
+        for (Node neighbour : node.neighbors) {
+            Node clonedNeighbour = clone(neighbour, nodeToCloneMap);
+            clone.neighbors.add(clonedNeighbour);
         }
 
         return clone;
