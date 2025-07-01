@@ -6,24 +6,22 @@ import java.util.Set;
 public class LongestSubstringRecursive {
 
     public int lengthOfLongestSubstring(String s) {
-        int longestSubstringLength = 0;
         int n = s.length();
+        int longestSubstringLength = 0;
 
         for (int i = 0; i < n; i++) {
-            int longestFromI = dfs(i, 0, new HashSet<>(), s);
-            longestSubstringLength = Math.max(longestSubstringLength, longestFromI);
+            longestSubstringLength = Math.max(
+                    longestSubstringLength,
+                    dfs(i, 0, new HashSet<>(), s));
         }
 
         return longestSubstringLength;
     }
 
     int dfs(int i, int currentLength, Set<Character> seen, String s) {
-        if (i >= s.length()) {
-            return currentLength;
-        }
-
         char currentChar = s.charAt(i);
-        if (seen.contains(currentChar)) {
+
+        if (i >= s.length() || seen.contains(currentChar)) {
             return currentLength;
         }
 
